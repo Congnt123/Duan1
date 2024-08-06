@@ -1,0 +1,207 @@
+.container{
+    width: 88%;
+    margin: auto;
+}
+
+a:hover{
+    color: rgb(213, 65, 62);
+}
+
+h3 {
+    background-color: rgb(227, 224, 224);
+    text-align: center;
+  margin-top: 0px;
+}
+header{
+    width: 100%;
+
+}
+.logo img{
+    width:15%;
+  
+}
+.logo input{
+    margin-left: 220px;
+    border: none;
+    padding: 10px;
+    outline: none;
+    font-size: 13px;
+     width: 500px;
+}
+button {
+    background-color: #abb1ab;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 10px;
+    outline: none;
+    border-radius: 10px;
+   
+   
+}
+button:hover{
+    background-color: brown;
+}
+header ul{
+    list-style: none;
+text-align: center;
+
+}
+header li{
+    display: inline-block;
+  
+}
+header a{
+    text-decoration: none;
+    font-size: medium ;
+    padding: 30px;
+    color: rgb(71, 69, 69);
+}
+
+.banner img{
+width: 100%;
+
+
+
+}
+
+.container_swap{
+display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+ .div_left img {
+ 
+        width: 500px;
+        height: 600px;
+        float: left;
+        /* padding-left: 120px; */
+        text-align: center;
+       border-radius: 30px 30px ;
+       padding: 15px;
+        
+        }
+.div_right img{
+    width: 230px;
+    height: 280px;
+    text-align: center;
+    padding: 15px;
+    
+}
+.dươi img{
+    width: 500px;
+}
+
+.banner1 {
+    
+    height: 180px;
+display: flex;
+justify-content: center;
+
+}
+.banner1 div {
+    text-align: center;
+    padding: 10px;
+    
+}
+.banner1 div img{
+    width: 100px;
+    border-radius: 20px;
+}
+.banner1 div h5 {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(89, 88, 88);
+    margin-top: 1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.sanpham1 img {
+    width: 200px;
+  padding: 30px;
+ 
+}
+.sanpham {
+    width: 100%;
+    justify-content: center;
+
+    display: flex;
+}
+.sanpham1{
+    text-align: center;
+}
+footer{
+    width: 100%;
+    height: 600px;
+    background-color: rgb(226, 43, 43);
+}
+.footer1{
+display: flex;
+   
+}
+.footer1 div{
+    padding: 20px;
+    text-align: center;
+}
+.footer1 div img{
+    display: flex;
+    padding: 10px;
+    
+   
+}
+.footer1 div h3{
+    color: rgb(33, 32, 32);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(226, 43, 43);
+}
+
+
+
+
+
+
+
+
+
+/* .search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #4CAF50;
+    border-radius: 25px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.search-input {
+    border: none;
+    padding: 10px;
+    outline: none;
+    font-size: 16px;
+    width: 300px;
+}
+
+
+
+.search-button:hover {
+    background-color: #45a049;
+} */
+
+
