@@ -1,0 +1,88 @@
+/* Container styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Form container styles */
+.bg-secondary {
+    background-color: #a5aab3 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+/* Form header styles */
+.bg-secondary h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 28px;
+}
+
+/* Form label styles */
+.bg-secondary .form-label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Form input styles */
+.bg-secondary .form-control {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Form textarea styles */
+.bg-secondary textarea.form-control {
+    resize: vertical;
+    height: 100px;
+}
+
+/* Form button styles */
+.bg-secondary .btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 15px 25px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.bg-secondary .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Footer styles */
+footer {
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    width: 100%;
+}
+
+/* Ensure the main container and row take full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .row {
+    flex: 1;
+}
