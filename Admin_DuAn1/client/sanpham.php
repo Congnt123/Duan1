@@ -1,3 +1,23 @@
+<?php
+include  "../database/database.php";
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+$connect = new mysqli($servername, $username, $password, $database);
+
+$search_term = '';
+if (isset($_GET['search'])) {
+    $search_term = $_GET['search'];
+}
+
+// Truy vấn lấy tất cả sản phẩm hoặc theo từ khóa tìm kiếm
+$sql = "SELECT * FROM products";
+if (!empty($search_term)) {
+    $sql .= " WHERE name LIKE '%" . $connect->real_escape_string($search_term) . "%'";
+}
+
+$result = $connect->query($sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +47,7 @@
        <header> 
         <ul>
             <li>
-                <a href="main.php">Thương Hiệu</a>
+                <a href="../main.php">Thương Hiệu</a>
                 <strong><a href="">Nam</a></strong>
                 <a href="">Nữ</a>
                 <a href="">Cặp Đôi</a>
@@ -161,126 +181,35 @@
         <th>Thứ tự theo điểm đánh giá ></th>
     </tr>
 </table>
+<br>
+<br>
+<br>
+<br>
 
 <div class="sanpham">
 
-    <div class="sanpham1">
-        <a href="ctsanpham.html"><img src="img/sp1.avif" alt=""></a>
-        <p>Casio World Time AE- <br> 1200WHD-1AVDF – Nam – <br> Quartz (Pin) – Mặt số thiên <br>hướng không quân đương 
-        <h4>1.506.000 ₫</h4></p>
-   
-    </div>
-    <div class="sanpham1">
-        <img src="img/ap2.avif" alt="">
-        <p>Orient SK RA-AA0B02R19B <br> – Nam – Automatic (Tự<br> Động) – Mặt Số 41.7mm,<br> Trữ Cót 40 Giờ, Hacking
-            <h4>8.000.000 ₫</h4></p>
-   
-    </div> <div class="sanpham1">
-        <img src="img/sp3.avif" alt="">
-        <p>Tissot Le Locle <br> Powermatic 80 <br>T006.407.22.033.00 – Nam<br> – Automatic – Mạ Vàng
-            <h4>22.750.000 ₫</h4></p>
-   
-    </div> <div class="sanpham1">
-        <img src="img/sp4.avif" alt="">
-        <p>Tissot Le Locle<br> Powermatic 80<br> T006.407.16.033.00 – Nam <br>– Automatic – Mặt Số 
-            <h4>17.500.000 ₫</h4></p>
-   
-    </div>
+<?php
+            if ($result->num_rows > 0):
+                // Hiển thị từng sản phẩm
+                while ($row = $result->fetch_assoc()) :?>
+                    <div class="sanpham1">
+                    <h2> <?= htmlspecialchars($row['name']) ?> </h2>
+                     <img src="../assets/img/<?= htmlspecialchars($row['image'])?>" alt='" <?= htmlspecialchars($row['name'])?> " width='100' height='100'>
+                     <p> <?= htmlspecialchars($row['short_description'])?>  </p>
+                     <h4><?= htmlspecialchars (number_format($row['price']) )?> VND</h4>
+                     <h4> <?= htmlspecialchars (number_format($row['sale_price']) )?> VND</h4>
+                    </div>
+          <?php endwhile; 
+          
+          else:
+          "không tìm thấy sản phẩm";
+          endif;
+          ?>
+<?php
+            $connect->close();
+            ?>
     
-    
- </div>
- <div class="sanpham">
 
-    <div class="sanpham1">
-        <img src="img/sp5.avif" alt="">
-        <p>Doxa Noble D173TCM –<br> Nam – Kính Sapphire – <br>Đính 8 Viên Kim Cương –<br> Sellita SW240 Automatic
-            <h4>49.240.000 ₫</h4></p>
-   
-    </div>
-    <div class="sanpham1">
-        <img src="img/ps6.avif" alt="">
-        <p>Titoni Airmaster 83743 S-<br>682 – Nam – Kính Sapphire<br> – Automatic – Mặt Số<br> 39mm, Đính Đá Pha Lê,
-            <h4>35.350.000 ₫</h4> </p>
-   
-    </div> <div class="sanpham1">
-        <img src="img/sp7.avif" alt="">
-        <p>Tissot PRX Powermatic <br> 80 T137.407.11.351.00 –<br> Nam – Automatic – Mặt Số Ice <br>Blue 40mm, Trữ 
-            <h4>21.000.000 ₫</h4></p>
-   
-    </div> <div class="sanpham1">
-        <img src="img/sp8.avif" alt="">
-        <p>Seiko 5 Sports<br> – SRPK41K1 – Nam – <br>Hardlex Cong – <br>Bản Kỷ Niệm 110 Năm – Giới Hạn
-            <h4>12.500.000 ₫</h4> </p>
-   
-    </div>
-    
-    
- </div>
- 
- <div class="sanpham">
-
-    <div class="sanpham1">
-        <img src="img/e1.avif" alt="">
-        <p>Casio MTP-V300L-1AUDF <br>– Nam – Quartz (Pin) – Mặt Số <br>41.5mm, Kính Cứng, <br>Chống Nước 3ATM 
-        <h4>4.906.000 ₫</h4></p>
-   
-    </div>
-    <div class="sanpham1">
-        <img src="img/e2.avif" alt="">
-        <p>Casio MTP-1183E-7ADF – Nam<br>– Quartz (Pin) – Kính cứng –<br>Mặt số mạ bạc tối giản trẻ<br> trung – Dây da dập vân lịch lãm
-            <h4>8.180.000 ₫</h4></p>
-   
-    </div> <div class="sanpham1">
-        <img src="img/e3.avif" alt="">
-        <p>Casio MTP-1302D-1A1VDF –<br> 
-            Casio MTP-1302D-1A1VDF –<br> 
-            38.5 mm, Kính Cứng, Chống<br> 
-            Nước 5ATM
- <h4>6.380.000 ₫</h4></p>
-   
-    </div> <div class="sanpham1">
-        <img src="img/e4.avif" alt="">
-        <p>Casio EFR-526L-1AVUDF – Nam<br> – Quartz (Pin) – Mặt số–<br>  43.8mm màu đen – Sở hữu 3<br> mặt số phụ – Chế độ Chronograph hoàn thiện
-            <h4>4.760.000 ₫</h4></p>
-   
-    </div>
-    
-    
- </div>
- <div class="sanpham">
-
-    <div class="sanpham1">
-        <img src="img/e5.avif" alt="">
-        <p>Casio MTP-1381L-1AVDF – <br>Nam – Quartz (Pin) – Mặt Số<br> 39.9mm, Kính Cứng, Chống <br>Nước 5ATM
-            <h4>40.606.000 ₫</h4></p>
-   
-    </div>
-    <div class="sanpham1">
-        <img src="img/e6.avif" alt="">
-        <p>Casio F-94WA-9HDG – Nam – <br>Kính Nhựa – Quartz (Pin) – Dây <br>Cao Su – Mặt Số 33.5mm
-
-
-         <h4>4.050.000 ₫</h4></p>
-   
-    </div> <div class="sanpham1">
-        <img src="img/e7.avif" alt="">
-        <p>Casio MTP-1381D-1AVDF –<br>Nam – Quartz (Pin) – Mặt Số<br>39.9 mm, Lịch Ngày Thứ, Chống<br>Nước 5 ATM
-
-
-            <h4>12.750.000 ₫</h4> </p>
-   
-    </div> <div class="sanpham1">
-        <img src="img/e8.avif" alt="">
-        <p>Casio MTP-1335D-2A2VDF – <br>Nam – Kính Cứng – Quartz<br>(Pin) – Mặt Số 38mm, Dạ<br> Quang, Chống Nước 5ATM
-
-
-            <h4>7.310.000 ₫</h4> </p>
-   
-    </div>
-    
-    
- </div>
- <hr>
 
   
 <strong><p class="tl">Không cần vòng tay, dây chuyền lấp lánh như quý cô, một chiếc đồng hồ phù hợp sẽ giúp tôn lên phong cách cá nhân và khẳng định <br>
